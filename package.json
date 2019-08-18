@@ -12,6 +12,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "@ant-design/icons": "^2.1.1",
     "compression": "^1.7.1",
     "polka": "next",
     "sirv": "^0.4.0"
