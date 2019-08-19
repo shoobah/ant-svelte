@@ -2,6 +2,7 @@
   import { AccountBookFill } from "@ant-design/icons";
   import { renderIconDefinitionToSVGElement } from "@ant-design/icons/lib/helpers";
   import * as allIcons from "@ant-design/icons/lib/dist";
+
   const svgHTMLString = renderIconDefinitionToSVGElement(AccountBookFill, {
     extraSVGAttrs: { width: "1em", height: "1em", fill: "currentColor" }
   });
