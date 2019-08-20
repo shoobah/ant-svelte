@@ -25,7 +25,6 @@
     var thing = document.getElementById(text);
     thing.select();
     document.execCommand("copy");
-    thing.unselect();
   }
 </script>
 
@@ -37,7 +36,7 @@
 
   .the-grid {
     display: grid;
-    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px;
   }
 
   textarea {
