@@ -29,14 +29,17 @@
 </script>
 
 <style>
-  .icon-box {
-    text-align: center;
-    padding-bottom: 20px;
+  .wrapper {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
   }
 
-  .the-grid {
-    display: grid;
-    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px;
+  .icon-box {
+    flex: 0 1 auto;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 150px;
   }
 
   textarea {
@@ -49,7 +52,7 @@
 </style>
 
 <h1>Available icons:</h1>
-<div class="the-grid">
+<div class="wrapper">
   {#each icons as icon}
     <div class="icon-box" on:click={e => onClick(icon)}>
       <Icon type={icon.name} theme={icon.theme} />
