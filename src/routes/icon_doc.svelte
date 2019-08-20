@@ -70,14 +70,15 @@
 </style>
 
 <h1>Available icons:</h1>
-<span>
+<div>{icons.length} icons available</div>
+<div style="padding-bottom:20px">
   <input
     type="checkbox"
     id="sortorder"
     name="sortorder"
     on:change={toggleSort} />
   <label for="sortorder">Sort by name:</label>
-</span>
+</div>
 <div class="wrapper">
   {#each icons as icon}
     <div class="icon-box" on:click={e => onClick(icon)}>
