@@ -10,7 +10,15 @@
       theme: i.theme,
       id: i.name + "." + i.theme + "_text",
       html: `<Icon type="${i.name}" theme="${i.theme}" />`
-    }));
+    }))
+    .sort((a, b) => {
+      var nameComp = a.name.localeCompare(b.name, "en");
+      var themeComp = a.theme.localeCompare(b.theme, "en");
+      if (themeComp === 0) {
+        return nameComp;
+      }
+      return themeComp;
+    });
 
   function onClick(icon) {
     var text = icon.name + "." + icon.theme + "_text";
