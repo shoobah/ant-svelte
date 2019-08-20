@@ -51,8 +51,11 @@
 <nav>
   <ul>
     <li>
+      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+    </li>
+    <li>
       <a class={segment === 'icon_doc' ? 'selected' : ''} href="icon_doc">
-        Icon
+        icon
       </a>
     </li>
 
