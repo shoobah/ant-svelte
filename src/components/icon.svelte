@@ -9,16 +9,16 @@
 
   export let type = "";
   export let component = undefined;
-  export let viewBox = undefined;
   export let spin = false;
   export let rotate = 0;
   export let tabIndex = -1;
   export let onClick = undefined;
-  export let children = [];
-  export let theme = "outlined"; // default to outlined
+  export let theme = "outline"; // default to outlined
   export let twoToneColor = "";
+  export let size = "2em";
   export let props = {};
 
+  // Translatioons goes here 😀
   const locale = {
     icon: "Icon"
   };
@@ -29,9 +29,11 @@
   }
 
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
-  var icon = icons.find(e => e.name === type);
-  console.log("icon", icon);
-  console.log("data", icon.name);
+  var found = icons.find(e => e.name === type && e.theme === theme);
+  console.log("found.icon", found.icon);
+
+  var d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
+  var viewBox = found.icon.attrs.viewBox;
 </script>
 
 <i
@@ -40,5 +42,12 @@
   tabIndex={iconTabIndex}
   {onClick}
   class="anticon anticon-{type}">
-  {@html svgHTMLString}
+  <svg
+    {viewBox}
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    version="1.1">
+    <path fill="black" stroke="none" stroke-width="1" {d} />
+  </svg>
 </i>
