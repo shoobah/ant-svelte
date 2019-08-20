@@ -15,7 +15,7 @@
   export let onClick = undefined;
   export let theme = "outline"; // default to outlined
   export let color = "black";
-  export let twoToneColor = "yellow";
+  export let twoToneColor = "#80e8ff";
   export let size = "2em";
   export let props = {};
 
