@@ -2,7 +2,28 @@
   import Icon from "../components/icon.svelte";
   import * as allIcons from "@ant-design/icons/lib/dist";
 
-  var icons = Object.keys(allIcons)
+  var sortByNameThenTheme = (a, b) => {
+    var nameComp = a.name.localeCompare(b.name, "en");
+    var themeComp = a.theme.localeCompare(b.theme, "en");
+    if (themeComp === 0) {
+      return nameComp;
+    }
+    return themeComp;
+  };
+
+  var sortByThemeThenName = (a, b) => {
+    var nameComp = a.name.localeCompare(b.name, "en");
+    var themeComp = a.theme.localeCompare(b.theme, "en");
+    if (nameComp === 0) {
+      return themeComp;
+    }
+    return nameComp;
+  };
+
+  var byName = false;
+  var icons = [];
+
+  $: icons = Object.keys(allIcons)
     .map(key => allIcons[key])
     .filter(e => e.name && e.theme)
     .map(i => ({
@@ -11,20 +32,17 @@
       id: i.name + "." + i.theme + "_text",
       html: `<Icon type="${i.name}" theme="${i.theme}" />`
     }))
-    .sort((a, b) => {
-      var nameComp = a.name.localeCompare(b.name, "en");
-      var themeComp = a.theme.localeCompare(b.theme, "en");
-      if (themeComp === 0) {
-        return nameComp;
-      }
-      return themeComp;
-    });
+    .sort(byName ? sortByNameThenTheme : sortByThemeThenName);
 
   function onClick(icon) {
     var text = icon.name + "." + icon.theme + "_text";
     var thing = document.getElementById(text);
     thing.select();
     document.execCommand("copy");
+  }
+
+  function toggleSort(e) {
+    byName = e.target.checked;
   }
 </script>
 
@@ -52,6 +70,14 @@
 </style>
 
 <h1>Available icons:</h1>
+<span>
+  <input
+    type="checkbox"
+    id="sortorder"
+    name="sortorder"
+    on:change={toggleSort} />
+  <label for="sortorder">Sort by name:</label>
+</span>
 <div class="wrapper">
   {#each icons as icon}
     <div class="icon-box" on:click={e => onClick(icon)}>
