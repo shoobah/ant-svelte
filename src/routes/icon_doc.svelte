@@ -4,13 +4,17 @@
 
   var icons = Object.keys(allIcons)
     .map(key => allIcons[key])
-    .filter(e => e.name && (e.theme === "fill" || e.theme === "outline"))
+    .filter(e => e.name && e.theme === "twotone")
     .map(i => ({
       name: i.name,
       theme: i.theme,
       id: i.name + "." + i.theme + "_text",
       html: `<Icon type="${i.name}" theme="${i.theme}" />`
     }));
+
+  var twotones = Object.keys(allIcons)
+    .map(key => allIcons[key])
+    .filter(e => e.name && e.theme === "twotone");
 
   function onClick(icon) {
     var text = icon.name + "." + icon.theme + "_text";
