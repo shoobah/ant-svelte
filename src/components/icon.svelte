@@ -14,7 +14,8 @@
   export let tabIndex = -1;
   export let onClick = undefined;
   export let theme = "outline"; // default to outlined
-  export let twoToneColor = "";
+  export let color = "black";
+  export let twoToneColor = "yellow";
   export let size = "2em";
   export let props = {};
 
@@ -29,11 +30,21 @@
   }
 
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
-  var found = icons.find(e => e.name === type && e.theme === theme);
-  console.log("found.icon", found.icon);
 
-  var d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
-  var viewBox = found.icon.attrs.viewBox;
+  var found = icons.find(e => e.name === type && e.theme === theme);
+
+  var ch = [];
+  var d = "";
+  var viewBox = "";
+
+  if (theme != "twotone") {
+    d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
+    viewBox = found.icon.attrs.viewBox;
+  } else {
+    var i = found.icon(color, twoToneColor);
+    viewBox = i.attrs.viewBox;
+    ch = i.children;
+  }
 </script>
 
 <i
@@ -42,12 +53,29 @@
   tabIndex={iconTabIndex}
   {onClick}
   class="anticon anticon-{type}">
-  <svg
-    {viewBox}
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    version="1.1">
-    <path fill="black" stroke="none" stroke-width="1" {d} />
-  </svg>
+  {#if theme === 'twotone'}
+    <svg
+      {viewBox}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      version="1.1">
+      {#each ch as child}
+        <path
+          fill={child.attrs.fill}
+          stroke="none"
+          stroke-width="1"
+          d={child.attrs.d} />
+      {/each}
+    </svg>
+  {:else}
+    <svg
+      {viewBox}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      version="1.1">
+      <path fill={color} stroke="none" stroke-width="1" {d} />
+    </svg>
+  {/if}
 </i>
