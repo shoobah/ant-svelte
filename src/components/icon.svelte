@@ -15,7 +15,7 @@
   export let onClick = undefined;
   export let theme = "outline"; // default to outlined
   export let color = "black";
-  export let twoToneColor = "";
+  export let twoToneColor = "yellow";
   export let size = "2em";
   export let props = {};
 
@@ -32,18 +32,19 @@
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
 
   var found = icons.find(e => e.name === type && e.theme === theme);
-  console.log("found", found);
 
-  var ch = found.icon.children;
+  var ch = [];
   var d = "";
   var viewBox = "";
 
   if (theme != "twotone") {
-    d = ch[0] ? ch[0].attrs.d : "";
+    d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
     viewBox = found.icon.attrs.viewBox;
   } else {
+    var i = found.icon(color, twoToneColor);
+    viewBox = i.attrs.viewBox;
+    ch = i.children;
   }
-  console.log(ch);
 </script>
 
 <i
@@ -61,10 +62,10 @@
       version="1.1">
       {#each ch as child}
         <path
-          fill={ch.attrs.fill}
+          fill={child.attrs.fill}
           stroke="none"
           stroke-width="1"
-          d:={ch.attrs.d} />
+          d={child.attrs.d} />
       {/each}
     </svg>
   {:else}
