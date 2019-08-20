@@ -1,18 +1,10 @@
 <script>
-  import { AccountBookFill } from "@ant-design/icons";
-  import { renderIconDefinitionToSVGElement } from "@ant-design/icons/lib/helpers";
   import * as allIcons from "@ant-design/icons/lib/dist";
 
-  const svgHTMLString = renderIconDefinitionToSVGElement(AccountBookFill, {
-    extraSVGAttrs: { width: "1em", height: "1em", fill: "currentColor" }
-  });
-
   export let type = "";
-  export let component = undefined;
   export let spin = false;
   export let rotate = 0;
   export let tabIndex = -1;
-  export let onClick = undefined;
   export let theme = "outline"; // default to outlined
   export let color = "black";
   export let twoToneColor = "#80e8ff";
@@ -31,13 +23,13 @@
 
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
 
-  var found = icons.find(e => e.name === type && e.theme === theme);
+  $:found = icons.find(e => e.name === type && e.theme === theme);
 
   var ch = [];
   var d = "";
   var viewBox = "";
 
-  if (theme != "twotone") {
+  $:if (theme != "twotone") {
     d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
     viewBox = found.icon.attrs.viewBox;
   } else {
@@ -51,7 +43,6 @@
   aria-label={type && `${locale.icon}: ${type}`}
   {...props}
   tabIndex={iconTabIndex}
-  {onClick}
   class="anticon anticon-{type}">
   {#if theme === 'twotone'}
     <svg
