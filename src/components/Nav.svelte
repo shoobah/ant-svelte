@@ -55,7 +55,7 @@
     </li>
     <li>
       <a class={segment === 'icon_doc' ? 'selected' : ''} href="icon_doc">
-        Icon
+        icon
       </a>
     </li>
     <li>
