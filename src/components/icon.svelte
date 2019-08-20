@@ -30,8 +30,6 @@
 
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
   var found = icons.find(e => e.name === type && e.theme === theme);
-  console.log("found.icon", found.icon);
-
   var d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
   var viewBox = found.icon.attrs.viewBox;
 </script>
