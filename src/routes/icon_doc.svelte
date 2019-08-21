@@ -70,7 +70,27 @@
   }
 </style>
 
-<h1>Available icons:</h1>
+<h1>Icon</h1>
+<section>
+  <h2>Usage</h2>
+  <p>The Icon element are used thus:</p>
+  <pre>{'<Icon type="close-circle" theme="outline" color="black" />'}</pre>
+  <p>
+    The property theme is optional and defaults to outline.
+    <br />
+    The property color is optional and defaults to black The property color is
+    optional and defaults to black
+  </p>
+  <p>
+    If you want to use the twotone theme there's another optional attribute
+    called twoToneColor that's used for the second color.
+  </p>
+  <pre>
+    {'<Icon type="close-circle" theme="twotone" color="black" twoToneColor="red" />'}
+  </pre>
+  <p>The property twoToneColor is optional and defaults to #80e8ff</p>
+</section>
+<h2>Available icons:</h2>
 <div>{icons.length} icons available</div>
 <div style="padding-bottom:20px">
   <input

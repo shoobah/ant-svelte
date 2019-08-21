@@ -2,12 +2,13 @@
   import * as allIcons from "@ant-design/icons/lib/dist";
 
   export let type = "";
-  export let spin = false;
-  export let rotate = 0;
-  export let tabIndex = -1;
   export let theme = "outline"; // default to outlined
   export let color = "black";
   export let twoToneColor = "#80e8ff";
+
+  export let spin = false;
+  export let rotate = 0;
+  export let tabIndex = -1;
   export let size = "2em";
   export let props = {};
 
