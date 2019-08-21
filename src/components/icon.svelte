@@ -30,8 +30,9 @@
   var viewBox = "";
 
   $: if (theme != "twotone") {
-    d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
-    viewBox = found.icon.attrs.viewBox;
+    var i = found.icon;
+    viewBox = i.attrs.viewBox;
+    ch = i.children;
   } else {
     var i = found.icon(color, twoToneColor);
     viewBox = i.attrs.viewBox;
@@ -44,29 +45,18 @@
   {...props}
   tabIndex={iconTabIndex}
   class="anticon anticon-{type}">
-  {#if theme === 'twotone'}
-    <svg
-      {viewBox}
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      version="1.1">
-      {#each ch as child}
-        <path
-          fill={child.attrs.fill}
-          stroke="none"
-          stroke-width="1"
-          d={child.attrs.d} />
-      {/each}
-    </svg>
-  {:else}
-    <svg
-      {viewBox}
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      version="1.1">
-      <path fill={color} stroke="none" stroke-width="1" {d} />
-    </svg>
-  {/if}
+  <svg
+    {viewBox}
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    version="1.1">
+    {#each ch as child}
+      <path
+        fill={theme === 'twotone' ? child.attrs.fill : color}
+        stroke="none"
+        stroke-width="1"
+        d={child.attrs.d} />
+    {/each}
+  </svg>
 </i>
