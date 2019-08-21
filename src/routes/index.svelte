@@ -28,5 +28,6 @@
     Not much here yet.
     <br />
     This is very much a work in progress.
+    <a href="https://github.com/shoobah/ant-svelte">Git repo</a>
   </section>
 </article>
