@@ -21,6 +21,7 @@
     return nameComp;
   };
 
+  var selectedIcon;
   var byName = false;
   var icons = [];
 
@@ -36,6 +37,9 @@
     .sort(byName ? sortByNameThenTheme : sortByThemeThenName);
 
   function onClick(icon) {
+    console.log("icon", icon);
+
+    selectedIcon = icon;
     var text = icon.name + "." + icon.theme + "_text";
     var thing = document.getElementById(text);
     thing.select();
@@ -74,7 +78,10 @@
 <section>
   <h2>Usage</h2>
   <p>The Icon element are used thus:</p>
-  <pre>{'<Icon type="close-circle" theme="outline" color="black" />'}</pre>
+  <pre>
+    {'<Icon type="close-circle" theme="outline" color="black" />'}
+    <Icon type="close-circle" theme="outline" color="black" />
+  </pre>
   <p>
     The property theme is optional and defaults to outline.
     <br />
@@ -87,10 +94,20 @@
   </p>
   <pre>
     {'<Icon type="close-circle" theme="twotone" color="black" twoToneColor="red" />'}
+    <Icon
+      type="close-circle"
+      theme="twotone"
+      color="black"
+      twoToneColor="red" />
   </pre>
   <p>The property twoToneColor is optional and defaults to #80e8ff</p>
 </section>
 <h2>Available icons:</h2>
+{#if selectedIcon}
+  <Icon size="8em" type={selectedIcon.name} theme={selectedIcon.theme} />
+  <pre>{selectedIcon.html}</pre>
+{/if}
+
 <div>{icons.length} icons available</div>
 <div style="padding-bottom:20px">
   <input
