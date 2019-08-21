@@ -23,13 +23,13 @@
 
   var icons = Object.keys(allIcons).map(key => allIcons[key]);
 
-  $:found = icons.find(e => e.name === type && e.theme === theme);
+  $: found = icons.find(e => e.name === type && e.theme === theme);
 
   var ch = [];
   var d = "";
   var viewBox = "";
 
-  $:if (theme != "twotone") {
+  $: if (theme != "twotone") {
     d = found.icon.children[0] ? found.icon.children[0].attrs.d : "";
     viewBox = found.icon.attrs.viewBox;
   } else {

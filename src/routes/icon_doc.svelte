@@ -1,6 +1,7 @@
 <script>
   import Icon from "../components/icon.svelte";
   import * as allIcons from "@ant-design/icons/lib/dist";
+  import { fade } from "svelte/transition";
 
   var sortByNameThenTheme = (a, b) => {
     var nameComp = a.name.localeCompare(b.name, "en");
@@ -81,7 +82,7 @@
 </div>
 <div class="wrapper">
   {#each icons as icon}
-    <div class="icon-box" on:click={e => onClick(icon)}>
+    <div in:fade class="icon-box" on:click={e => onClick(icon)}>
       <Icon type={icon.name} theme={icon.theme} />
       <br />
       <span>{icon.name} - {icon.theme}</span>
