@@ -1,5 +1,5 @@
 {
-  "name": "component-one",
+  "name": "ant-svelte",
   "svelte": "src/index.svelte",
   "module": "index.mjs",
   "main": "index.js",
@@ -21,7 +21,7 @@
     "index.mjs",
     "index.js"
   ],
-  "description": "*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*",
+  "description": "pff",
   "version": "1.0.0",
   "dependencies": {
     "@ant-design/icons": "^2.1.1"
