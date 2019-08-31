@@ -29,7 +29,8 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-livereload": "^1.0.1",
-    "rollup-plugin-terser": "^5.1.1"
+    "rollup-plugin-terser": "^5.1.1",
+    "ws": "^7.1.2"
   },
   "author": "Anders Sjöberg",
   "license": "MIT"
