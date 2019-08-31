@@ -1,6 +1,6 @@
 {
   "name": "ant-svelte",
-  "svelte": "src/index.svelte",
+  "svelte": "src/components.module.js",
   "module": "index.mjs",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,12 @@
   "description": "*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*",
   "version": "0.0.3",
   "dependencies": {
-    "@ant-design/icons": "^2.1.1"
+    "@ant-design/icons": "^2.1.1",
+    "@babel/core": "^7.5.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-livereload": "^1.0.1",
+    "rollup-plugin-terser": "^5.1.1"
   },
   "author": "Anders Sjöberg",
   "license": "ISC"
