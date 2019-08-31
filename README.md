@@ -1,3 +1,5 @@
 # svelte-ant
 
-Trying to package as a component library, not working WIP!!!!
+Only one component here so far. Icon
+
+[Documentation](https://antsvelte.z16.web.core.windows.net/)

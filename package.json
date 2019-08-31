@@ -21,8 +21,8 @@
     "index.mjs",
     "index.js"
   ],
-  "description": "*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*",
-  "version": "0.0.3",
+  "description": "Ant design components for Svelte",
+  "version": "0.0.5",
   "dependencies": {
     "@ant-design/icons": "^2.1.1",
     "@babel/core": "^7.5.5",
@@ -32,5 +32,5 @@
     "rollup-plugin-terser": "^5.1.1"
   },
   "author": "Anders Sjöberg",
-  "license": "ISC"
+  "license": "MIT"
 }
