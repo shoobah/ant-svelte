@@ -2,4 +2,4 @@
 
 Only one component here so far. Icon
 
-[Documentation](https://antsvelte.z16.web.core.windows.net/)
+[Documentation](http://www.ant-svelte.com/)
