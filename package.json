@@ -21,8 +21,8 @@
     "index.mjs",
     "index.js"
   ],
-  "description": "pff",
-  "version": "1.0.0",
+  "description": "*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*",
+  "version": "0.0.3",
   "dependencies": {
     "@ant-design/icons": "^2.1.1"
   },
