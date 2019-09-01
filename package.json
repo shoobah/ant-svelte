@@ -21,8 +21,8 @@
     "index.mjs",
     "index.js"
   ],
-  "description": "Ant design components for Svelte",
-  "version": "0.0.5",
+  "description": "Ant design components for Svelte - WIP!",
+  "version": "0.0.6",
   "dependencies": {
     "@ant-design/icons": "^2.1.1",
     "@babel/core": "^7.5.5",
