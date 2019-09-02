@@ -5,13 +5,12 @@
   export let theme = "outline"; // default to outlined
   export let color = "black";
   export let twoToneColor = "#80e8ff";
+  export let style = {};
 
   export let spin = false;
   export let rotate = 0;
   export let tabIndex = -1;
   export let size = "2em";
-  export let props = {};
-
   // Translatioons goes here 😀
   const locale = {
     icon: "Icon"
@@ -43,9 +42,9 @@
 
 <i
   aria-label={type && `${locale.icon}: ${type}`}
-  {...props}
   tabIndex={iconTabIndex}
-  class="anticon anticon-{type}">
+  class="anticon anticon-{type}"
+  {style}>
   <svg
     {viewBox}
     xmlns="http://www.w3.org/2000/svg"
