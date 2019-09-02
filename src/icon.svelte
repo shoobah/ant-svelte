@@ -38,7 +38,42 @@
     viewBox = i.attrs.viewBox;
     ch = i.children;
   }
+
+  let iconSpin = spin ? "anticon-spin" : "";
 </script>
+
+<style>
+  @-webkit-keyframes loadingCircle {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loadingCircle {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .anticon {
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .anticon-spin {
+    display: inline-block;
+    -webkit-animation: loadingCircle 1s infinite linear;
+    animation: loadingCircle 1s infinite linear;
+  }
+</style>
 
 <i
   aria-label={type && `${locale.icon}: ${type}`}
@@ -50,6 +85,7 @@
     xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
+    class={iconSpin}
     version="1.1">
     {#each ch as child}
       <path
