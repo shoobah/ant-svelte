@@ -64,6 +64,7 @@
     text-transform: none;
     vertical-align: -0.125em;
     text-rendering: optimizeLegibility;
+    user-select: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -6,12 +6,13 @@
   export let size = "";
   export let shape = "";
   export let icon = "";
+  export let onClick;
 
   $: iconColor = () => {
     if (type === "primary" || type === "danger") {
-      return "#FFF";
+      return "#ffffff";
     }
-    return "#000";
+    return "#000000";
   };
 
   $: classes = () => {
@@ -46,6 +47,17 @@
 </script>
 
 <style>
+  button {
+    text-transform: none;
+    -webkit-appearance: button;
+  }
+
+  .ant-btn,
+  .ant-btn:active,
+  .ant-btn:focus {
+    outline: 0;
+  }
+
   .ant-btn {
     line-height: 1.5;
     position: relative;
@@ -185,7 +197,7 @@
   }
 </style>
 
-<button class={classes()} type="button">
+<button on:click={onClick} class={classes()} type="button">
   {#if icon}
     <Icon
       type={icon}
