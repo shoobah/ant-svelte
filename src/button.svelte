@@ -6,7 +6,7 @@
   export let size = "";
   export let shape = "";
   export let icon = "";
-  export let onClick;
+  export let onClick = undefined;
 
   $: iconColor = () => {
     if (type === "primary" || type === "danger") {
