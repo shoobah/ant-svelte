@@ -22,7 +22,7 @@
     "index.js"
   ],
   "description": "Ant design components for Svelte - WIP!",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "@ant-design/icons": "^2.1.1",
     "@babel/core": "^7.5.5",
