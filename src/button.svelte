@@ -171,17 +171,16 @@
     background: #fff;
   }
 
-  .ant-btn-primary:hover,
-  .ant-btn-primary:focus {
-    color: #fff;
-    background-color: #40a9ff;
-    border-color: #40a9ff;
-  }
-
   .ant-btn:hover,
   .ant-btn:focus {
     color: #40a9ff;
     background-color: #fff;
+    border-color: #40a9ff;
+  }
+  .ant-btn-primary:hover,
+  .ant-btn-primary:focus {
+    color: #fff;
+    background-color: #40a9ff;
     border-color: #40a9ff;
   }
 
