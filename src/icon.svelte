@@ -84,6 +84,10 @@
   i {
     transition: all 300ms;
   }
+
+  i:focus {
+    outline: none;
+  }
 </style>
 
 <i
@@ -91,6 +95,7 @@
   tabIndex={iconTabIndex}
   class="anticon anticon-{type}"
   class:flip
+  on:click
   {style}>
   <svg
     {viewBox}
