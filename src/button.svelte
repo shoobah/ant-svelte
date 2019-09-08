@@ -6,14 +6,11 @@
   export let size = "";
   export let shape = "";
   export let icon = "";
+  export let loading = false;
   export let onClick = undefined;
 
-  $: iconColor = () => {
-    if (type === "primary" || type === "danger") {
-      return "#ffffff";
-    }
-    return "#000000";
-  };
+  $: iconColor =
+    type === "primary" || type === "danger" ? "#ffffff" : "#000000";
 
   $: classes = () => {
     var theCss = "ant-btn";
@@ -197,12 +194,20 @@
 </style>
 
 <button on:click={onClick} class={classes()} type="button">
-  {#if icon}
+  {#if icon && !loading}
     <Icon
       type={icon}
       size="14px"
       style="vertical-align: -0.125em; user-select: none"
-      color={iconColor()} />
+      color={iconColor} />
+  {/if}
+  {#if loading}
+    <Icon
+      type="loading"
+      spin
+      size="14px"
+      style="vertical-align: -0.125em; user-select: none"
+      color={iconColor} />
   {/if}
   <slot />
 </button>

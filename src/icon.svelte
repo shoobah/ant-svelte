@@ -6,11 +6,13 @@
   export let color = "black";
   export let twoToneColor = "#80e8ff";
   export let style = {};
+  export let flip = false;
 
   export let spin = false;
   export let rotate = 0;
   export let tabIndex = -1;
   export let size = "2em";
+
   // Translatioons goes here 😀
   const locale = {
     icon: "Icon"
@@ -74,12 +76,21 @@
     -webkit-animation: loadingCircle 1s infinite linear;
     animation: loadingCircle 1s infinite linear;
   }
+
+  .flip {
+    transform: rotate(0.5turn);
+  }
+
+  i {
+    transition: all 300ms;
+  }
 </style>
 
 <i
   aria-label={type && `${locale.icon}: ${type}`}
   tabIndex={iconTabIndex}
   class="anticon anticon-{type}"
+  class:flip
   {style}>
   <svg
     {viewBox}
