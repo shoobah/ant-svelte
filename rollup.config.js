@@ -5,6 +5,14 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
+import postcss from "rollup-plugin-postcss";
+import copy from "rollup-plugin-copy";
+
+// PostCSS plugins
+import simplevars from "postcss-simple-vars";
+import nested from "postcss-nested";
+import cssnext from "postcss-cssnext";
+import cssnano from "cssnano";
 
 const ie11Build = process.env.PAP_LEGACY_BUILD;
 
@@ -47,9 +55,21 @@ export default {
         production
           ? css.write("dist/ant-svelte.css")
           : css.write("public/bundle.css");
-      }
+      },
+      emitCss: true
     }),
-
+    postcss({
+      plugins: [
+        simplevars(),
+        nested(),
+        cssnext({ warnForDuplicates: false }),
+        cssnano()
+      ],
+      extensions: [".css"]
+    }),
+    copy({
+      targets: [{ src: "style/fonts", dest: "dist" }]
+    }),
     resolve(),
     commonjs(),
 

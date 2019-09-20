@@ -8,8 +8,14 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-simple-vars": "^5.0.2",
     "rollup": "^1.20.3",
+    "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-svelte": "^5.1.0",
     "svelte": "^3.9.2"
   },
