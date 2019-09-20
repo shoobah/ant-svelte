@@ -11,7 +11,7 @@
   export let spin = false;
   export let rotate = 0;
   export let tabIndex = -1;
-  export let size = "2em";
+  export let size = "1em";
 
   // Translatioons goes here 😀
   const locale = {
