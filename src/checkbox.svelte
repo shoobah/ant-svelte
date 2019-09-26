@@ -1,10 +1,17 @@
 <script>
   export let onChange = undefined;
   export let checked = false;
+  export let disabled = false;
 
   const change = () => {
-    checked = !checked;
-    if (onChange) {
+    checked = !disabled ? !checked : checked;
+    console.log(
+      "%c🖖" + new Date().toLocaleTimeString("se") + " checked:",
+      "color:lime",
+      checked
+    );
+
+    if (onChange && !disabled) {
       onChange();
     }
   };
@@ -115,10 +122,31 @@
     transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
     content: " ";
   }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #1890ff;
+    border-color: #1890ff;
+  }
+
+  .ant-checkbox-disabled {
+    cursor: not-allowed;
+  }
+
+  .ant-checkbox-disabled .ant-checkbox-input {
+    cursor: not-allowed;
+  }
+
+  .ant-checkbox-disabled .ant-checkbox-inner {
+    background-color: #f5f5f5;
+    border-color: #d9d9d9 !important;
+  }
 </style>
 
 <label class="ant-checkbox-wrapper">
-  <span class="ant-checkbox" class:ant-checkbox-checked={checked}>
+  <span
+    class="ant-checkbox"
+    class:ant-checkbox-checked={checked}
+    class:ant-checkbox-disabled={disabled}>
     <input
       type="checkbox"
       class="ant-checkbox-input"
@@ -128,7 +156,6 @@
     <span class="ant-checkbox-inner" />
   </span>
   <span>
-    <pre>{checked}</pre>
     <slot />
   </span>
 </label>
