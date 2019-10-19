@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "local": "rollup -c && npm link"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
